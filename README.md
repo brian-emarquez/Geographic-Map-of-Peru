@@ -17,5 +17,4 @@
   
 </p>
   
-![python](./Images/python3.png)
 
