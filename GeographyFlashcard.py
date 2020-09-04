@@ -8,7 +8,7 @@ import random
 root = Tk()
 root.title('Geography Flashcard')
 root.iconbitmap('icons/geography.ico')
-root.geometry("500x600")
+root.geometry("600x800")
 
 
 # Create Addition math flashcards
@@ -62,12 +62,15 @@ def random_state():
 
     # Create list of state names
     global our_states
-    our_states = ['california', 'florida', 'illinois', 'kentucky','nebraska', 'nevada', 'newyork', 'oregon', 'texas']
+    #our_states = ['california', 'florida', 'illinois', 'kentucky','nebraska', 'nevada', 'newyork', 'oregon', 'texas']
+    our_states = ['ancash', 'apurimac', 'arequipa', 'ayacucho', 'cajamarca', 'cerro de pasco', 'cuzco', 'huancavelica', 'huanuco', 'ica', 'junin', 'la libertad', 'lambayeque', 'lima', 'madre de dios', 'moquegua', 'piura', 'puno', 'san martin', 'tacna', 'tumbes', 'ucayali', 'amazonas', 'loreto']
 
     # Generate a random number
     global rando
     rando = randint(0, len(our_states)-1)
-    state = "states/" + our_states[rando] + ".png"
+    #state = "states/" + our_states[rando] + ".png"
+    state = "departments/" + our_states[rando] + ".jpg"
+
 
     # Create our State Images
     global state_image
@@ -109,21 +112,6 @@ def states():
     state_frame.pack(fill="both", expand=1)
     #my_label = Label(state_frame, text="States").pack()
 
-    '''
-    # Create list of state names
-    global our_states
-    our_states = ['california', 'florida', 'illinois', 'kentucky','nebraska', 'newyork', 'oregon', 'texas']
-
-    # Generate a random number
-    global rando
-    rando = randint(0, len(our_states)-1)
-    state = "Python Tkinter Build a Geography Flashcard IV/states/" + our_states[rando] + ".png"
-
-    # Create our State Images
-    global state_image
-    state_image = ImageTk.PhotoImage(Image.open(state))
-    '''
-
     global show_state
     show_state = Label(state_frame)
     show_state.pack(pady=15)
@@ -159,19 +147,36 @@ def state_capitals():
     show_state.pack(pady=15)
 
     global our_states
-    our_states = ['california', 'florida', 'illinois', 'kentucky','nebraska', 'nevada', 'newyork', 'oregon', 'texas']
+    #our_states = ['california', 'florida', 'illinois', 'kentucky','nebraska', 'nevada', 'newyork', 'oregon', 'texas']
+    our_states = ['ancash', 'apurimac', 'arequipa', 'ayacucho', 'cajamarca', 'cerro de pasco', 'cuzco', 'huancavelica', 'huanuco', 'ica', 'junin', 'la libertad', 'lambayeque', 'lima', 'madre de dios', 'moquegua', 'piura', 'puno', 'san martin', 'tacna', 'tumbes', 'ucayali', 'amazonas', 'loreto']
+
 
     global our_state_capitals
     our_state_capitals = {
-    'california':"sacramento",
-    'florida':"tallahasse", 
-    'illinois':"sorinfield", 
-    'kentucky':"frankfort",
-    'nebraska': "lincoln", 
-    'nevada':"carson city", 
-    'newyork': "albany", 
-    'oregon': "salem", 
-    'texas':"austin"
+    'amazonas':"Chachapoyas",
+    'ancash':"Huaraz", 
+    'apurímac':"Abancay", 
+    'arequipa':"Arequipa",
+    'ayacucho': "Ayacucho", 
+    'cajamarca':"Cajamarca", 
+    'cuzco': "Cuzco", 
+    'huancavelica': "Huancavelica", 
+    'huanuco':"Huánuco",
+    'ica':"Ica",
+    'junin':"Huancayo",
+    'la libertad':"Trujillo",
+    'lambayeque':"Chiclayo",
+    'lima':"Lima",
+    'loreto':"Iquitos",
+    'madre de dios':"Puerto Maldonado",
+    'moquegua':"Moquegua",
+    'cerro de Pasco':"Cerro de Pasco",
+    'piura':"Piura",
+    'puno':"Puno",
+    'san Martín':"Moyobamba",
+    'tacna':"Tacna",
+    'tumbes':"Tumbes",
+    'ucayali':"Pucallpa"
     }
 
     # create empty answer list and counter
@@ -186,7 +191,9 @@ def state_capitals():
         if count == 1: 
             answer = our_states[rando]
             global state_image
-            state = "states/" + our_states[rando] + ".png"
+            #state = "states/" + our_states[rando] + ".png"
+            state = "departments/" + our_states[rando] + ".jpg"
+
             state_image = ImageTk.PhotoImage(Image.open(state))
             show_state.config(image=state_image)
 
@@ -248,12 +255,16 @@ root.config(menu=my_menu)
 
 # Create Geography Menu Items
 states_menu = Menu(my_menu)
-my_menu.add_cascade(label="Geography", menu=states_menu)
-states_menu.add_command(label="States", command=states)
-states_menu.add_command(label="State Capitals", command=state_capitals)
+my_menu.add_cascade(label="Departamentos", menu=states_menu)
+states_menu.add_command(label="Departamentos", command=states)
+states_menu.add_command(label="Departamentos y Capitales", command=state_capitals)
 states_menu.add_separator()
 states_menu.add_command(label="Exit", command=root.quit)
 
+# Regiones de Arequipa
+region_menu = Menu(my_menu)
+region_menu.add_cascade(label="Regiones de Arequipa", menu=region_menu)
+region_menu.add_command(label="Regiones y Capitales", command=add)
 
 # Math Flashcard Menu
 math_menu = Menu(my_menu)
