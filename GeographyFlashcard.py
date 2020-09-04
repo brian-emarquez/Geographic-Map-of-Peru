@@ -8,7 +8,7 @@ import random
 root = Tk()
 root.title('Geography Flashcard')
 root.iconbitmap('icons/geography.ico')
-root.geometry("600x800")
+root.geometry("600x850")
 
 
 # Create Addition math flashcards
@@ -53,7 +53,7 @@ def add():
     add_answer = Entry (add_frame, font=("Helvetica", 18))
     add_answer.pack(pady=50)
 
-    add_answer_button = Button(add_frame, text="Answer")
+    add_answer_button = Button(add_frame, text="Respuesta")
     add_answer_button.pack()
 
 
@@ -62,13 +62,11 @@ def random_state():
 
     # Create list of state names
     global our_states
-    #our_states = ['california', 'florida', 'illinois', 'kentucky','nebraska', 'nevada', 'newyork', 'oregon', 'texas']
     our_states = ['ancash', 'apurimac', 'arequipa', 'ayacucho', 'cajamarca', 'cerro de pasco', 'cuzco', 'huancavelica', 'huanuco', 'ica', 'junin', 'la libertad', 'lambayeque', 'lima', 'madre de dios', 'moquegua', 'piura', 'puno', 'san martin', 'tacna', 'tumbes', 'ucayali', 'amazonas', 'loreto']
 
     # Generate a random number
     global rando
     rando = randint(0, len(our_states)-1)
-    #state = "states/" + our_states[rando] + ".png"
     state = "departments/" + our_states[rando] + ".jpg"
 
 
@@ -147,7 +145,6 @@ def state_capitals():
     show_state.pack(pady=15)
 
     global our_states
-    #our_states = ['california', 'florida', 'illinois', 'kentucky','nebraska', 'nevada', 'newyork', 'oregon', 'texas']
     our_states = ['ancash', 'apurimac', 'arequipa', 'ayacucho', 'cajamarca', 'cerro de pasco', 'cuzco', 'huancavelica', 'huanuco', 'ica', 'junin', 'la libertad', 'lambayeque', 'lima', 'madre de dios', 'moquegua', 'piura', 'puno', 'san martin', 'tacna', 'tumbes', 'ucayali', 'amazonas', 'loreto']
 
 
@@ -155,7 +152,7 @@ def state_capitals():
     our_state_capitals = {
     'amazonas':"Chachapoyas",
     'ancash':"Huaraz", 
-    'apurímac':"Abancay", 
+    'apurimac':"Abancay", 
     'arequipa':"Arequipa",
     'ayacucho': "Ayacucho", 
     'cajamarca':"Cajamarca", 
@@ -170,10 +167,10 @@ def state_capitals():
     'loreto':"Iquitos",
     'madre de dios':"Puerto Maldonado",
     'moquegua':"Moquegua",
-    'cerro de Pasco':"Cerro de Pasco",
+    'cerro de pasco':"Cerro de Pasco",
     'piura':"Piura",
     'puno':"Puno",
-    'san Martín':"Moyobamba",
+    'san martin':"Moyobamba",
     'tacna':"Tacna",
     'tumbes':"Tumbes",
     'ucayali':"Pucallpa"
@@ -191,7 +188,6 @@ def state_capitals():
         if count == 1: 
             answer = our_states[rando]
             global state_image
-            #state = "states/" + our_states[rando] + ".png"
             state = "departments/" + our_states[rando] + ".jpg"
 
             state_image = ImageTk.PhotoImage(Image.open(state))
@@ -219,19 +215,47 @@ def state_capitals():
     capital_radio_butto3 = Radiobutton(state_capitals_frame, text=our_state_capitals[answer_list[2]].title(), variable=capital_radio, value=our_state_capitals[answer_list[2]]).pack()
 
     # Add a Pass Button
-    pass_button = Button(state_capitals_frame, text="Pass", command=state_capitals)
+    pass_button = Button(state_capitals_frame, text="Siguiente", command=state_capitals)
     pass_button.pack(pady=15)
 
     # Create a button to answer
-    capital_anwer_button = Button(state_capitals_frame, text="Answer", command=state_capital_answer)
+    capital_anwer_button = Button(state_capitals_frame, text="Respuesta", command=state_capital_answer)
     capital_anwer_button.pack(pady=15)
+    #capital_anwer_button.grid(row=15, column=5)
 
     # Create an answer label
     global answer_label_capitals
     answer_label_capitals = Label(state_capitals_frame, text="", font=("helvetica", 15))
     answer_label_capitals.pack(pady=15)
 
+def region():
+    # Hide previous frames
+    hide_all_frames() # borra el frame anterior
+    state_frame.pack(fill="both", expand=1)
+    #my_label = Label(state_frame, text="States").pack()
 
+    global show_state
+    show_state = Label(state_frame)
+    show_state.pack(pady=15)
+    random_state()
+
+    # Create a aswer input box
+    global answer_input
+    answer_input = Entry (state_frame, font=("Helvetica", 18), bg="white")
+    answer_input.pack(pady=15)
+
+    # Create Button randomize state Images
+    randon_button = Button(state_frame, text="Siguiente", command=states)
+    randon_button.pack(pady=10)
+
+    # Create a Button to Answers the question
+    answer_button = Button(state_frame, text="Respuesta", command=state_answer)
+    answer_button.pack(pady=5)
+
+    # Create a Label to tell us if we got the answer right or not
+    global answer_label
+    answer_label = Label(state_frame, text="",  font=("Helvetica", 18), bg="white")
+    answer_label.pack(pady=15)
 
 # Hide all previous frames
 def hide_all_frames():
@@ -245,9 +269,13 @@ def hide_all_frames():
     for Widget in add_frame.winfo_children():
         Widget.destroy()
 
+    for Widget in region_frame.winfo_children():
+        Widget.destroy()
+
     add_frame.pack_forget()
     state_frame.pack_forget()
     state_capitals_frame.pack_forget()
+    region_frame.pack_forget()
 
 # Create our menu
 my_menu = Menu(root)
@@ -261,19 +289,21 @@ states_menu.add_command(label="Departamentos y Capitales", command=state_capital
 states_menu.add_separator()
 states_menu.add_command(label="Exit", command=root.quit)
 
-# Regiones de Arequipa
+# Mathematical operations
 region_menu = Menu(my_menu)
-region_menu.add_cascade(label="Regiones de Arequipa", menu=region_menu)
-region_menu.add_command(label="Regiones y Capitales", command=add)
+my_menu.add_cascade(label="Regiones", menu=region_menu)
+region_menu.add_command(label="Regiones", command=region)
 
 # Math Flashcard Menu
 math_menu = Menu(my_menu)
-my_menu.add_cascade(label="Math", menu=math_menu)
-math_menu.add_command(label="Addition", command=add)
+my_menu.add_cascade(label="Operacion Matematicas", menu=math_menu)
+math_menu.add_command(label="Operacion Matematicas", command=add)
 
+#FRAMES
 # Create our Frames
 state_frame = Frame(root, width=500, height=50, bg="white")
 state_capitals_frame = Frame(root, width=500, height=500)
+region_frame = Frame(root, width=500, height=500)
 
 # addition Frame
 add_frame = Frame(root, width=500, height=500)
