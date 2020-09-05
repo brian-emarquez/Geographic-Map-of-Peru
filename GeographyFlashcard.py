@@ -105,6 +105,8 @@ def state_answer():
 
 # Create state flascard Function
 def states():
+    Imagen_2.destroy()
+
     # Hide previous frames
     hide_all_frames() # borra el frame anterior
     state_frame.pack(fill="both", expand=1)
@@ -135,6 +137,7 @@ def states():
 
 # Create State Capital Flashcard Function
 def state_capitals():
+    Imagen_2.destroy()
     # Hide previous frames
     hide_all_frames() # borra el frame anterior
     state_capitals_frame.pack(fill="both", expand=1)
@@ -205,6 +208,7 @@ def state_capitals():
         count += 1
 
     random.shuffle(answer_list)
+    
 
     global capital_radio
     capital_radio = StringVar()
@@ -216,19 +220,20 @@ def state_capitals():
 
     # Add a Pass Button
     pass_button = Button(state_capitals_frame, text="Siguiente", command=state_capitals)
-    pass_button.pack(pady=15)
+    pass_button.pack(pady=5)
 
     # Create a button to answer
     capital_anwer_button = Button(state_capitals_frame, text="Respuesta", command=state_capital_answer)
-    capital_anwer_button.pack(pady=15)
+    capital_anwer_button.pack(pady=5)
     #capital_anwer_button.grid(row=15, column=5)
 
     # Create an answer label
     global answer_label_capitals
     answer_label_capitals = Label(state_capitals_frame, text="", font=("helvetica", 15))
-    answer_label_capitals.pack(pady=15)
+    answer_label_capitals.pack(pady=5)
 
 def region():
+    Imagen_2.destroy()
     # Hide previous frames
     hide_all_frames() # borra el frame anterior
     state_frame.pack(fill="both", expand=1)
@@ -307,5 +312,23 @@ region_frame = Frame(root, width=500, height=500)
 
 # addition Frame
 add_frame = Frame(root, width=500, height=500)
+
+# Main Image
+Imagen=PhotoImage(file="images/img_peru.png")
+Imagen_2 =Label(root, image=Imagen)
+Imagen_2.place(x=100, y=50)
+
+
+Botton_departamento = Button(root, text="Departamentos", command=states)
+Botton_departamento.place(x=100, y=780)
+
+Botton_capital = Button(root, text="Capitales", command=states)
+Botton_capital.place(x=230, y=780)
+
+Botton_capital = Button(root, text="Capitales", command=states)
+Botton_capital.place(x=330, y=780)
+
+Botton_capital = Button(root, text="Capitales", command=states)
+Botton_capital.place(x=430, y=780)
 
 root.mainloop()
