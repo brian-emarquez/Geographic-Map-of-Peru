@@ -13,6 +13,8 @@ root.geometry("600x850")
 
 # Create Addition math flashcards
 def add():
+    Imagen_2.destroy()
+
     hide_all_frames()
     add_frame.pack(fill="both", expand=1)
 
@@ -22,8 +24,8 @@ def add():
 
     # Generate a random number
     global rando
-    num_1 = randint(0, 10)
-    num_2 = randint(0, 10)
+    num_1 = randint(0, 9)
+    num_2 = randint(0, 9)
     #math_sign = Label(pic_frame)
 
     # Create 3 labes inside our pic frame, frame
@@ -123,11 +125,11 @@ def states():
     answer_input.pack(pady=15)
 
     # Create Button randomize state Images
-    randon_button = Button(state_frame, text="Pass", command=states)
+    randon_button = Button(state_frame, text="Siguiente", command=states)
     randon_button.pack(pady=10)
 
     # Create a Button to Answers the question
-    answer_button = Button(state_frame, text="Answer", command=state_answer)
+    answer_button = Button(state_frame, text="Respuesta", command=state_answer)
     answer_button.pack(pady=5)
 
     # Create a Label to tell us if we got the answer right or not
@@ -254,7 +256,7 @@ def region():
     randon_button.pack(pady=10)
 
     # Create a Button to Answers the question
-    answer_button = Button(state_frame, text="Respuesta", command=state_answer)
+    answer_button = Button(state_frame, text="Respuestaa", command=state_answer)
     answer_button.pack(pady=5)
 
     # Create a Label to tell us if we got the answer right or not
@@ -325,10 +327,10 @@ Botton_departamento.place(x=100, y=780)
 Botton_capital = Button(root, text="Capitales", command=states)
 Botton_capital.place(x=230, y=780)
 
-Botton_capital = Button(root, text="Capitales", command=states)
+Botton_capital = Button(root, text="Regiones", command=states)
 Botton_capital.place(x=330, y=780)
 
-Botton_capital = Button(root, text="Capitales", command=states)
+Botton_capital = Button(root, text="Ope. Matematicas", command=states)
 Botton_capital.place(x=430, y=780)
 
 root.mainloop()
