@@ -34,7 +34,10 @@
 ## Operaciones Matematicas
 ![python](./Install/5.png)
 ## Requerimientos
-
+_py2exe_
+```
+pip install py2exe
+```
 
 ## Descarga el Instalador
 
