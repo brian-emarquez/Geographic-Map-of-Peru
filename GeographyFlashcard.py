@@ -38,8 +38,8 @@ def math_random():
     add_2.config(image=add_image2)
 
 
-# Create addition answer function
-def answer_add():
+# Create Function Suma
+def answer_add_suma():
 
     answer = num_1 + num_2
     if int(add_answer.get()) == answer:
@@ -51,15 +51,56 @@ def answer_add():
     add_answer.delete(0, "end")
     math_random() #funtion math_ramdom
 
-# Create Addition math flashcards
-def add():
+# Create Function resta
+def answer_add_resta():
 
+    answer = num_1 - num_2
+    if int(add_answer.get()) == answer:
+        response = "Correct " + str(num_1) + " - " + str(num_2) + " = " + str(answer)
+    else:
+        response = "Wrong " + str(num_1) + " - " + str(num_2) + " = " + str(answer) + " Not " + add_answer.get()
+
+    answer_message.config(text=response)
+    add_answer.delete(0, "end")
+    math_random() #funtion math_ramdom
+
+# Create Function multiplicacion
+def answer_add_mutiplicacion():
+
+    answer = num_1 * num_2
+    if int(add_answer.get()) == answer:
+        response = "Correct " + str(num_1) + " * " + str(num_2) + " = " + str(answer)
+    else:
+        response = "Wrong " + str(num_1) + " * " + str(num_2) + " = " + str(answer) + " Not " + add_answer.get()
+
+    answer_message.config(text=response)
+    add_answer.delete(0, "end")
+    math_random() #funtion math_ramdom
+
+def answer_add_division():
+
+    answer = num_1 / num_2
+    if int(add_answer.get()) == answer:
+        response = "Correct " + str(num_1) + " / " + str(num_2) + " = " + str(answer)
+    else:
+        response = "Wrong " + str(num_1) + " / " + str(num_2) + " = " + str(answer) + " Not " + add_answer.get()
+
+    answer_message.config(text=response)
+    add_answer.delete(0, "end")
+    math_random() #funtion math_ramdom
+
+
+
+
+# Create funtion suma
+def suma():
+    
     Imagen_2.destroy()
     titulo.destroy()
     hide_all_frames()
     add_frame.pack(fill="both", expand=1)
 
-    add_label = Label(add_frame, text="Addition Flashcards", font=("Helvetica", 18)).pack(pady=5)
+    add_label = Label(add_frame, text="Sumas", font=("Helvetica", 18)).pack(pady=5)
     pic_frame = Frame(add_frame, width = 400, height=300)
     pic_frame.pack()
 
@@ -100,7 +141,177 @@ def add():
     add_answer = Entry (add_frame, font=("Helvetica", 18))
     add_answer.pack(pady=50)
 
-    add_answer_button = Button(add_frame, text="Answer", command=answer_add)
+    add_answer_button = Button(add_frame, text="Answer", command=answer_add_suma)
+    add_answer_button.pack()
+
+    global answer_message
+    answer_message = Label(add_frame, text="", font=("Helvetica", 18))
+    answer_message.pack(pady=20)
+
+
+# Create funtion resta
+def resta():
+    
+    Imagen_2.destroy()
+    titulo.destroy()
+    hide_all_frames()
+    add_frame.pack(fill="both", expand=1)
+
+    add_label = Label(add_frame, text="Resta", font=("Helvetica", 18)).pack(pady=5)
+    pic_frame = Frame(add_frame, width = 400, height=300)
+    pic_frame.pack()
+
+    # Generate a random number
+    global num_1
+    global num_2
+    num_1 = randint(0, 9)
+    num_2 = randint(0, 9)
+    #math_sign = Label(pic_frame)
+
+    # Create 3 labes inside our pic frame, frame
+    global add_1
+    global add_2
+    add_1 = Label(pic_frame)
+    add_2 = Label(pic_frame)
+    math_sign = Label(pic_frame, text="-", font=("Helvetica", 28))
+    
+    # Grid our label
+    add_1.grid(row=0, column=0)
+    math_sign.grid(row=0, column=1)
+    add_2.grid(row=0, column=2)
+
+    global add_image1
+    global add_image2
+
+    card1 = "flashcards/" + str(num_1) + ".png"
+    card2 = "flashcards/" + str(num_2) + ".png"
+
+    add_image1 = ImageTk.PhotoImage(Image.open(card1))
+    add_image2 = ImageTk.PhotoImage(Image.open(card2))
+
+    # put flashcard images on the screen
+    add_1.config(image=add_image1)
+    add_2.config(image=add_image2)
+
+    # Create anwer box and button
+    global add_answer 
+    add_answer = Entry (add_frame, font=("Helvetica", 18))
+    add_answer.pack(pady=50)
+
+    add_answer_button = Button(add_frame, text="Answer", command=answer_add_resta)
+    add_answer_button.pack()
+
+    global answer_message
+    answer_message = Label(add_frame, text="", font=("Helvetica", 18))
+    answer_message.pack(pady=20)
+
+
+# create multiplicacion
+def multiplicacion():
+    
+    Imagen_2.destroy()
+    titulo.destroy()
+    hide_all_frames()
+    add_frame.pack(fill="both", expand=1)
+
+    add_label = Label(add_frame, text="Multiplicacion", font=("Helvetica", 18)).pack(pady=5)
+    pic_frame = Frame(add_frame, width = 400, height=300)
+    pic_frame.pack()
+
+    # Generate a random number
+    global num_1
+    global num_2
+    num_1 = randint(0, 9)
+    num_2 = randint(0, 9)
+    #math_sign = Label(pic_frame)
+
+    # Create 3 labes inside our pic frame, frame
+    global add_1
+    global add_2
+    add_1 = Label(pic_frame)
+    add_2 = Label(pic_frame)
+    math_sign = Label(pic_frame, text=" * ", font=("Helvetica", 28))
+    
+    # Grid our label
+    add_1.grid(row=0, column=0)
+    math_sign.grid(row=0, column=1)
+    add_2.grid(row=0, column=2)
+
+    global add_image1
+    global add_image2
+
+    card1 = "flashcards/" + str(num_1) + ".png"
+    card2 = "flashcards/" + str(num_2) + ".png"
+
+    add_image1 = ImageTk.PhotoImage(Image.open(card1))
+    add_image2 = ImageTk.PhotoImage(Image.open(card2))
+
+    # put flashcard images on the screen
+    add_1.config(image=add_image1)
+    add_2.config(image=add_image2)
+
+    # Create anwer box and button
+    global add_answer 
+    add_answer = Entry (add_frame, font=("Helvetica", 18))
+    add_answer.pack(pady=50)
+
+    add_answer_button = Button(add_frame, text="Answer", command=answer_add_mutiplicacion)
+    add_answer_button.pack()
+
+    global answer_message
+    answer_message = Label(add_frame, text="", font=("Helvetica", 18))
+    answer_message.pack(pady=20)
+
+# create division
+def division():
+    
+    Imagen_2.destroy()
+    titulo.destroy()
+    hide_all_frames()
+    add_frame.pack(fill="both", expand=1)
+
+    add_label = Label(add_frame, text="Division", font=("Helvetica", 18)).pack(pady=5)
+    pic_frame = Frame(add_frame, width = 400, height=300)
+    pic_frame.pack()
+
+    # Generate a random number
+    global num_1
+    global num_2
+    num_1 = randint(0, 9)
+    num_2 = randint(0, 9)
+    #math_sign = Label(pic_frame)
+
+    # Create 3 labes inside our pic frame, frame
+    global add_1
+    global add_2
+    add_1 = Label(pic_frame)
+    add_2 = Label(pic_frame)
+    math_sign = Label(pic_frame, text=" / ", font=("Helvetica", 28))
+    
+    # Grid our label
+    add_1.grid(row=0, column=0)
+    math_sign.grid(row=0, column=1)
+    add_2.grid(row=0, column=2)
+
+    global add_image1
+    global add_image2
+
+    card1 = "flashcards/" + str(num_1) + ".png"
+    card2 = "flashcards/" + str(num_2) + ".png"
+
+    add_image1 = ImageTk.PhotoImage(Image.open(card1))
+    add_image2 = ImageTk.PhotoImage(Image.open(card2))
+
+    # put flashcard images on the screen
+    add_1.config(image=add_image1)
+    add_2.config(image=add_image2)
+
+    # Create anwer box and button
+    global add_answer 
+    add_answer = Entry (add_frame, font=("Helvetica", 18))
+    add_answer.pack(pady=50)
+
+    add_answer_button = Button(add_frame, text="Answer", command=answer_add_division)
     add_answer_button.pack()
 
     global answer_message
@@ -400,7 +611,10 @@ region_menu.add_command(label="Regiones", command=region)
 # Math Flashcard Menu
 math_menu = Menu(my_menu)
 my_menu.add_cascade(label="Operacion Matematicas", menu=math_menu)
-math_menu.add_command(label="Operacion Matematicas", command=add)
+math_menu.add_command(label="Sumas", command=suma)
+math_menu.add_command(label="Resta", command=resta)
+math_menu.add_command(label="Multiplicacion", command=multiplicacion)
+math_menu.add_command(label="Division", command=division)
 
 #FRAMES
 # Create our Frames
@@ -427,7 +641,7 @@ Botton_capital.place(x=230, y=780)
 Botton_capital = Button(root, text="Regiones", command=region)
 Botton_capital.place(x=330, y=780)
 
-Botton_capital = Button(root, text="Ope. Matematicas", command=add)
+Botton_capital = Button(root, text="Ope. Matematicas", command=suma)
 Botton_capital.place(x=430, y=780)
 
 scrollbar.config(command=listbox.yview)
