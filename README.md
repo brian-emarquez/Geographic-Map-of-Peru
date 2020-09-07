@@ -14,7 +14,27 @@
   <a>
     <img src="https://img.shields.io/badge/Next%20Release-Aug%2017-green">
   </a>
-  
 </p>
-  
 
+![python](./Install/1.png)
+
+<p> Es Juego de aprendizaje para Niños de Primaria donde se pone a prueba el conocimiento de los 24 departamentos del Perú, incluyendo las regiones del departamento de Arequipa, el mecanismo trata de ver una imagen de un departamento de manera donde y colocar su nombre. Finalmente incluye unas operaciones matemáticas: </p>
+
+- Suma
+- Resta
+- Multiplicacion
+- Resta
+
+## ¿Adivina que departamento es?
+![python](./Install/2.png)
+
+## ¿Adivina que departamento es? Incluye Opciones
+![python](./Install/3.png)
+
+## ¿Adivina que Region de Arequipa es?
+![python](./Install/4.png)
+
+## Operaciones Matematicas
+![python](./Install/5.png)
+
+## Descarga el Instalador
