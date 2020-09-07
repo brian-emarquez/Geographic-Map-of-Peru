@@ -40,6 +40,7 @@ def math_random():
 
 # Create addition answer function
 def answer_add():
+
     answer = num_1 + num_2
     if int(add_answer.get()) == answer:
         response = "Correct " + str(num_1) + " + " + str(num_2) + " = " + str(answer)
@@ -52,7 +53,9 @@ def answer_add():
 
 # Create Addition math flashcards
 def add():
+
     Imagen_2.destroy()
+    titulo.destroy()
     hide_all_frames()
     add_frame.pack(fill="both", expand=1)
 
@@ -108,13 +111,13 @@ def add():
 def random_state():
 
     # Create list of state names
-    global our_states
-    our_states = ['ancash', 'apurimac', 'arequipa', 'ayacucho', 'cajamarca', 'cerro de pasco', 'cuzco', 'huancavelica', 'huanuco', 'ica', 'junin', 'la libertad', 'lambayeque', 'lima', 'madre de dios', 'moquegua', 'piura', 'puno', 'san martin', 'tacna', 'tumbes', 'ucayali', 'amazonas', 'loreto']
+    global our_departments
+    our_departments = ['ancash', 'apurimac', 'arequipa', 'ayacucho', 'cajamarca', 'cerro de pasco', 'cuzco', 'huancavelica', 'huanuco', 'ica', 'junin', 'la libertad', 'lambayeque', 'lima', 'madre de dios', 'moquegua', 'piura', 'puno', 'san martin', 'tacna', 'tumbes', 'ucayali', 'amazonas', 'loreto']
 
     # Generate a random number
     global rando
-    rando = randint(0, len(our_states)-1)
-    state = "departments/" + our_states[rando] + ".jpg"
+    rando = randint(0, len(our_departments)-1)
+    state = "departments/" + our_departments[rando] + ".jpg"
 
 
     # Create our State Images
@@ -124,6 +127,7 @@ def random_state():
     
 # create state capital answer
 def state_capital_answer():
+
     if capital_radio.get() == our_state_capitals[answer]:
         response = "Correct " + our_state_capitals[answer] + "is the capital of " + answer.title()
     else:
@@ -138,10 +142,10 @@ def state_answer():
     answer = answer.replace(" ", "") # Remplaza, quitando el espacio
 
     # Determine if our answer if right or wring!
-    if answer.lower() == our_states[rando]:
-        response = "Correct " + our_states[rando].title()
+    if answer.lower() == our_departments[rando]:
+        response = "Correct " + our_departments[rando].title()
     else:
-        response="Incorrect " + our_states[rando].title()
+        response="Incorrect " + our_departments[rando].title()
 
     answer_label.config(text=response)
     
@@ -153,9 +157,11 @@ def state_answer():
 # Create state flascard Function
 def states():
     Imagen_2.destroy()
+    titulo.destroy()
 
     # Hide previous frames
     hide_all_frames() # borra el frame anterior
+    
     state_frame.pack(fill="both", expand=1)
     #my_label = Label(state_frame, text="States").pack()
 
@@ -184,7 +190,9 @@ def states():
 
 # Create State Capital Flashcard Function
 def state_capitals():
+
     Imagen_2.destroy()
+    titulo.destroy()
     # Hide previous frames
     hide_all_frames() # borra el frame anterior
     state_capitals_frame.pack(fill="both", expand=1)
@@ -194,8 +202,8 @@ def state_capitals():
     show_state = Label(state_capitals_frame)
     show_state.pack(pady=15)
 
-    global our_states
-    our_states = ['ancash', 'apurimac', 'arequipa', 'ayacucho', 'cajamarca', 'cerro de pasco', 'cuzco', 'huancavelica', 'huanuco', 'ica', 'junin', 'la libertad', 'lambayeque', 'lima', 'madre de dios', 'moquegua', 'piura', 'puno', 'san martin', 'tacna', 'tumbes', 'ucayali', 'amazonas', 'loreto']
+    global our_departments
+    our_departments = ['ancash', 'apurimac', 'arequipa', 'ayacucho', 'cajamarca', 'cerro de pasco', 'cuzco', 'huancavelica', 'huanuco', 'ica', 'junin', 'la libertad', 'lambayeque', 'lima', 'madre de dios', 'moquegua', 'piura', 'puno', 'san martin', 'tacna', 'tumbes', 'ucayali', 'amazonas', 'loreto']
 
 
     global our_state_capitals
@@ -234,23 +242,23 @@ def state_capitals():
     # Generate our theree randon capitals
     while count < 4:
         # if first selection, make it our answer
-        rando = randint(0, len(our_states)-1)
+        rando = randint(0, len(our_departments)-1)
         if count == 1: 
-            answer = our_states[rando]
+            answer = our_departments[rando]
             global state_image
-            state = "departments/" + our_states[rando] + ".jpg"
+            state = "departments/" + our_departments[rando] + ".jpg"
 
             state_image = ImageTk.PhotoImage(Image.open(state))
             show_state.config(image=state_image)
 
         # add our first selection to a new list
-        answer_list.append(our_states[rando])
+        answer_list.append(our_departments[rando])
 
         # Remove from old list
-        our_states.remove(our_states[rando])
+        our_departments.remove(our_departments[rando])
 
         # Shuffle our original list
-        random.shuffle(our_states)
+        random.shuffle(our_departments)
 
         count += 1
 
@@ -281,33 +289,11 @@ def state_capitals():
 
 def region():
     Imagen_2.destroy()
-    # Hide previous frames
-    hide_all_frames() # borra el frame anterior
-    state_frame.pack(fill="both", expand=1)
-    #my_label = Label(state_frame, text="States").pack()
+    titulo.destroy()
+    
 
-    global show_state
-    show_state = Label(state_frame)
-    show_state.pack(pady=15)
-    random_state()
 
-    # Create a aswer input box
-    global answer_input
-    answer_input = Entry (state_frame, font=("Helvetica", 18), bg="white")
-    answer_input.pack(pady=15)
 
-    # Create Button randomize state Images
-    randon_button = Button(state_frame, text="Siguiente", command=states)
-    randon_button.pack(pady=10)
-
-    # Create a Button to Answers the question
-    answer_button = Button(state_frame, text="Respuestaa", command=state_answer)
-    answer_button.pack(pady=5)
-
-    # Create a Label to tell us if we got the answer right or not
-    global answer_label
-    answer_label = Label(state_frame, text="",  font=("Helvetica", 18), bg="white")
-    answer_label.pack(pady=15)
 
 # Hide all previous frames
 def hide_all_frames():
@@ -365,6 +351,8 @@ Imagen=PhotoImage(file="images/img_peru.png")
 Imagen_2 =Label(root, image=Imagen)
 Imagen_2.place(x=100, y=50)
 
+titulo = Label(root, text="DEPARTAMENTOS DEL PERU")
+titulo.pack(pady=20)
 Botton_departamento = Button(root, text="Departamentos", command=states)
 Botton_departamento.place(x=100, y=780)
 
