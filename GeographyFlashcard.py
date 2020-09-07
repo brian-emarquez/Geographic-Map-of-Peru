@@ -596,20 +596,20 @@ my_menu = Menu(root)
 root.config(menu=my_menu)
 
 # Create Geography Menu Items
-states_menu = Menu(my_menu)
+states_menu = Menu(my_menu, tearoff=0)
 my_menu.add_cascade(label="Departamentos", menu=states_menu)
 states_menu.add_command(label="Departamentos", command=states)
 states_menu.add_command(label="Departamentos y Capitales", command=state_capitals)
-states_menu.add_separator()
+#states_menu.add_separator()
 states_menu.add_command(label="Exit", command=root.quit)
 
 # Mathematical operations
-region_menu = Menu(my_menu)
+region_menu = Menu(my_menu, tearoff=0)
 my_menu.add_cascade(label="Regiones", menu=region_menu)
 region_menu.add_command(label="Regiones", command=region)
 
 # Math Flashcard Menu
-math_menu = Menu(my_menu)
+math_menu = Menu(my_menu, tearoff=0)
 my_menu.add_cascade(label="Operacion Matematicas", menu=math_menu)
 math_menu.add_command(label="Sumas", command=suma)
 math_menu.add_command(label="Resta", command=resta)
