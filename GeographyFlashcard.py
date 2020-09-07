@@ -188,6 +188,7 @@ def states():
     answer_label = Label(state_frame, text="",  font=("Helvetica", 18), bg="white")
     answer_label.pack(pady=15)
 
+
 # Create State Capital Flashcard Function
 def state_capitals():
 
@@ -287,11 +288,75 @@ def state_capitals():
     answer_label_capitals = Label(state_capitals_frame, text="", font=("helvetica", 15))
     answer_label_capitals.pack(pady=5)
 
+
+def random_region():
+
+    # Create list of state names
+    global our_region
+    our_region = ['arequipa', 'camana', 'caraveli', 'castilla', 'caylloma', 'condesuyos', 'islay', 'la union']
+
+    # Generate a random number
+    global rando
+    rando = randint(0, len(our_region)-1)
+    region = "regions/" +  our_region[rando] + ".png"
+
+
+    # Create our State Images
+    global region_image
+    region_image = ImageTk.PhotoImage(Image.open(region))
+    show_region.config(image=region_image)
+
+
+def region_answer():
+
+    answer = answer_input.get()
+    answer = answer.replace(" ", "") # Remplaza, quitando el espacio
+
+    # Determine if our answer if right or wring!
+    if answer.lower() == our_region[rando]:
+        response = "Correct " + our_region[rando].title()
+    else:
+        response="Incorrect " + our_region[rando].title()
+
+    answer_label.config(text=response)
+    
+    # clear the entrey box
+    answer_input.delete(0, 'end')
+
+    random_region()
+
 def region():
     Imagen_2.destroy()
     titulo.destroy()
-    
 
+    # Hide previous frames
+    hide_all_frames() # borra el frame anterior
+    
+    region_frame.pack(fill="both", expand=1)
+    #my_label = Label(state_frame, text="States").pack()
+
+    global show_region
+    show_region = Label(region_frame)
+    show_region.pack(pady=15)
+    random_region()
+
+    # Create a aswer input box
+    global answer_input
+    answer_input = Entry (region_frame, font=("Helvetica", 18), bg="white")
+    answer_input.pack(pady=15)
+
+    # Create Button randomize state Images
+    randon_button = Button(region_frame, text="Siguiente", command=region)
+    randon_button.pack(pady=10)
+
+    # Create a Button to Answers the question
+    answer_button = Button(region_frame, text="Respuesta", command=region_answer)
+    answer_button.pack(pady=5)
+
+    # Create a Label to tell us if we got the answer right or not
+    global answer_label
+    answer_label = Label(region_frame, text="",  font=("Helvetica", 18), bg="white")
+    answer_label.pack(pady=15)
 
 
 
