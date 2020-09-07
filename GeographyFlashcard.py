@@ -8,7 +8,7 @@ import random
 root = Tk()
 root.title('Geography Flashcard')
 root.iconbitmap('icons/geography.ico')
-root.geometry("600x700")
+root.geometry("650x850")
 
 scrollbar = Scrollbar(root)
 scrollbar.pack(side=RIGHT, fill=Y)
@@ -27,8 +27,8 @@ def math_random():
     global add_image1
     global add_image2
 
-    card1 = "flashcards/" + str(num_1) + ".jpg"
-    card2 = "flashcards/" + str(num_2) + ".jpg"
+    card1 = "flashcards/" + str(num_1) + ".png"
+    card2 = "flashcards/" + str(num_2) + ".png"
 
     add_image1 = ImageTk.PhotoImage(Image.open(card1))
     add_image2 = ImageTk.PhotoImage(Image.open(card2))
@@ -82,8 +82,8 @@ def add():
     global add_image1
     global add_image2
 
-    card1 = "flashcards/" + str(num_1) + ".jpg"
-    card2 = "flashcards/" + str(num_2) + ".jpg"
+    card1 = "flashcards/" + str(num_1) + ".png"
+    card2 = "flashcards/" + str(num_2) + ".png"
 
     add_image1 = ImageTk.PhotoImage(Image.open(card1))
     add_image2 = ImageTk.PhotoImage(Image.open(card2))
@@ -368,13 +368,13 @@ Imagen_2.place(x=100, y=50)
 Botton_departamento = Button(root, text="Departamentos", command=states)
 Botton_departamento.place(x=100, y=780)
 
-Botton_capital = Button(root, text="Capitales", command=states)
+Botton_capital = Button(root, text="Capitales", command=state_capitals)
 Botton_capital.place(x=230, y=780)
 
-Botton_capital = Button(root, text="Regiones", command=states)
+Botton_capital = Button(root, text="Regiones", command=region)
 Botton_capital.place(x=330, y=780)
 
-Botton_capital = Button(root, text="Ope. Matematicas", command=states)
+Botton_capital = Button(root, text="Ope. Matematicas", command=add)
 Botton_capital.place(x=430, y=780)
 
 scrollbar.config(command=listbox.yview)
