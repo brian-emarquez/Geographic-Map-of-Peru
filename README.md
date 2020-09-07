@@ -33,5 +33,11 @@
 
 ## Operaciones Matematicas
 ![python](./Install/5.png)
+## Requerimientos
+
 
 ## Descarga el Instalador
+
+
+## Adicional
+La herramienta se ha creado únicamente con fines educativos.
