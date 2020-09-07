@@ -10,11 +10,6 @@ root.title('Geography Flashcard')
 root.iconbitmap('icons/geography.ico')
 root.geometry("650x850")
 
-scrollbar = Scrollbar(root)
-scrollbar.pack(side=RIGHT, fill=Y)
-
-listbox = Listbox(root, yscrollcommand=scrollbar.set)
-
 def math_random():
 
     # Generate a random number
@@ -88,8 +83,6 @@ def answer_add_division():
     answer_message.config(text=response)
     add_answer.delete(0, "end")
     math_random() #funtion math_ramdom
-
-
 
 
 # Create funtion suma
@@ -643,7 +636,5 @@ Botton_capital.place(x=330, y=780)
 
 Botton_capital = Button(root, text="Ope. Matematicas", command=suma)
 Botton_capital.place(x=430, y=780)
-
-scrollbar.config(command=listbox.yview)
 
 root.mainloop()
