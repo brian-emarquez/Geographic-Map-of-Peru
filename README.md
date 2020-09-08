@@ -36,7 +36,11 @@
 ## Requerimientos
 _py2exe_
 ```
-pip install py2exe
+pip install cx-Freeze
+```
+_Ejecutar_
+```
+python setup.py build
 ```
 
 ## Descarga el Instalador
