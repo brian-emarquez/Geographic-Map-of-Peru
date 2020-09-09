@@ -45,7 +45,8 @@ python setup.py build
 ## Descarga el Instalador
 
 _Link de Descarga_
-📦 [Carpeta Raiz ](https://github.com/BrianMarquez3/Geographic-Map-of-Peru/tree/master/geographic_install) Carpeta Raiz.<br>
+Descargue la Carpeta completa(Windows) y Ejecute el Archivo geographic.exe
+📦 [Paquete](https://github.com/BrianMarquez3/Geographic-Map-of-Peru/tree/master/geographic_install) Ejecucion del programa.<br>
 
 ## Adicional
 La herramienta se ha creado únicamente con fines educativos.
