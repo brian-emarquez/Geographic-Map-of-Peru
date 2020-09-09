@@ -44,6 +44,8 @@ python setup.py build
 ```
 ## Descarga el Instalador
 
+_Link de Descarga_
+📦 [Install .EXE ](https://raw.githubusercontent.com/Geographic-Map-of-Peru/Geographic-Map-of-Peru) Carpeta Raiz.<br>
 
 ## Adicional
 La herramienta se ha creado únicamente con fines educativos.
