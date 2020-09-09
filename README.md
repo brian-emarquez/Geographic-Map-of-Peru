@@ -46,7 +46,7 @@ python setup.py build
 
 _Link de Descarga_
 Descargue la Carpeta completa(Windows) y Ejecute el Archivo geographic.exe <br>
-📦 [Paquete](https://github.com/BrianMarquez3/Geographic-Map-of-Peru/tree/master/geographic_install) Ejecucion del programa.<br>
+📦 [Paquete](https://github.com/BrianMarquez3/Geographic-Map-of-Peru/tree/master/geographic_install) Carpeta de Ejecucion.<br>
 
 ## Adicional
 La herramienta se ha creado únicamente con fines educativos.
