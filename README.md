@@ -34,15 +34,14 @@
 ## Operaciones Matematicas
 ![python](./Install/5.png)
 ## Requerimientos
-_py2exe_
+_pyinstaller_
 ```
-pip install cx-Freeze
+pip install pyinstaller
 ```
 _Ejecutar_
 ```
 python setup.py build
 ```
-
 ## Descarga el Instalador
 
 
