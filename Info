@@ -1,2 +1,5 @@
 Links:
-https://recursospython.com/guias-y-manuales/posicionar-elementos-en-tkinter/
+https://www.pyinstaller.org/
+* pyinstaller --windowed archivoPyhton.py
+
+*
