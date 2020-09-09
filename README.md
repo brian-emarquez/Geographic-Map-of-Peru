@@ -20,7 +20,7 @@
 - Suma
 - Resta
 - Multiplicacion
-- Resta
+- Division
 
 ## ¿Adivina que departamento es?
 ![python](./Install/2.png)
